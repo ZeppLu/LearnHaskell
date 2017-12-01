@@ -1,7 +1,7 @@
-Life is too long, I use Haskell.
-<p align="right">
-  <i>--The Eleder</i>
-</p>
+> Life is too long, I use Haskell.
+> <p align="right">
+>   <i>--The Elder</i>
+> </p>
 
 
 ### Sources
