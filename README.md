@@ -1,5 +1,5 @@
-> Life is too long, I use Haskell.
-> <div style="text-align: right">*The Elder*</div>
+Life is too long, I use Haskell.
+<div style="text-align: right">*The Elder*</div>
 
 
 ### Sources
