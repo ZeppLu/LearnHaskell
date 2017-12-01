@@ -1,5 +1,7 @@
 Life is too long, I use Haskell.
-<div style="text-align: right">*The Elder*</div>
+<p align="right">
+  <i>--The Eleder</i>
+</p>
 
 
 ### Sources
