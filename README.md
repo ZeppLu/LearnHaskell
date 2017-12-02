@@ -5,9 +5,15 @@
 
 
 ### Sources
-- [Real World Haskell](http://book.realworldhaskell.org/read/), referred to as `RWH`.
-- [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/chapters/), referred to as `LYH`.
+- [Real World Haskell](http://book.realworldhaskell.org/read/),
+  referred to as `RWH`.
+- [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/chapters/),
+  referred to as `LYH`.
 
+
+### Random explorations
+- [Tying the knot](tying_the_knot.hs). A mechanism to play around
+  with cyclic data structures in Haskell
 
 ### License
 <a href="http://www.wtfpl.net">
