@@ -1,3 +1,8 @@
+{-# LANGUAGE
+    StandaloneDeriving,
+    GADTs
+#-}
+
 -- RWH Chapter 3. Defining Types, Streamlining Functions --
 
 

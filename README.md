@@ -5,13 +5,15 @@
 
 
 ### Sources
-- [Real World Haskell](http://book.realworldhaskell.org/read/),
+- [Real World Haskell](http://book.realworldhaskell.org/read),
   referred to as `RWH`.
-- [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/chapters/),
+- [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/chapters),
   referred to as `LYH`.
 - [CIS 194: Introduction to Haskell](http://www.seas.upenn.edu/~cis194),
   **TODO**.
 - [DATA 61: Functional Programming Course](https://github.com/data61/fp-course),
+  **TODO**.
+- [What I Wish I Know When Learning Haskell](http://dev.stephendiehl.com/hask),
   **TODO**.
 
 
