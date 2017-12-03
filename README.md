@@ -15,6 +15,8 @@
   **TODO**.
 - [What I Wish I Know When Learning Haskell](http://dev.stephendiehl.com/hask),
   **TODO**.
+- [CS240H: Functional Systems in Haskell](http://www.scs.stanford.edu/16wi-cs240h),
+  **TODO**.
 
 
 ### Random explorations

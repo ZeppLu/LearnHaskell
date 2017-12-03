@@ -30,6 +30,8 @@ merge = map (\(a, b) -> a + b)
 sum' :: Num a => [a] -> a
 sum' = foldl (+) 0
 elem' x xs = foldl (||) False (zipWith (==) (repeat x) xs)
+-- A possibly clearer method
+elem'' x xs = any (==x) $ xs
 -- `map' can also built upon `foldl', but it requires `++',
 -- which it much more expansive than `:'
 map' f xs = foldr applyNew [] xs

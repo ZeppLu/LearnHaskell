@@ -31,3 +31,12 @@ howLong xs = "This list is " ++ long xs ++ " long"
           long [_]    = "one"
           long [_, _] = "two"
           long _      = "too"
+-- Since `case' is an expression, doing so is also fine,
+-- despite its less readability
+howLong' xs = "This list is " ++
+                  case xs of
+                      []     -> "zero"
+                      [_]    -> "one"
+                      [_, _] -> "two"
+                      _      -> "too"
+                  ++ " long"
