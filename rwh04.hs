@@ -22,6 +22,27 @@ safeHead' xs = Just $ head xs
 andEmpty = assert (and      []) True
 orEmpty  = assert (not $ or []) False
 
+-- Usefull functions dealing with strings
+cutByLine = lines "multi\nline\ntext"
+concatByLine = unlines ["multi", "line", "text"]
+cutBySpace = words "Can  \ryou\nhear\t me,\r\n  Alice?"
+concatBySpace = unwords ["Can", "you", "hear", "me,", "Alice?"]
+-- Furthermore:
+-- `take', `drop' and `takeWhile', `dropWhile'
+-- `splitAt' "tuples up" the results of `take' and `drop'
+-- `span' "tuples up" those of `takeWhile'
+-- `break' "tuples up" those of `dropWhile'
+
+-- ex02, both work
+splitWith :: (a -> Bool) -> [a] -> [[a]]
+splitWith _ [] = []
+--splitWith p all@(x:xs) = case break p all of
+--    ([]   , _   ) -> splitWith p xs
+--    (first, rest) -> first : splitWith p rest
+-- `dropWhile null' to remove null list at the head brought by `break'
+splitWith p (x:xs) = dropWhile null $ first : restSplit
+    where (first, rest) = break p (x:xs)
+          restSplit = splitWith p $ dropWhile p rest
 
 
 -- Failed to get a reasonably working `zipWithN'
