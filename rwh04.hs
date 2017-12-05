@@ -32,6 +32,8 @@ concatBySpace = unwords ["Can", "you", "hear", "me,", "Alice?"]
 -- `splitAt' "tuples up" the results of `take' and `drop'
 -- `span' "tuples up" those of `takeWhile'
 -- `break' "tuples up" those of `dropWhile'
+-- Further further more:
+-- from Data.List: `nub', `group', `sort'
 
 -- ex02, both work
 splitWith :: (a -> Bool) -> [a] -> [[a]]
