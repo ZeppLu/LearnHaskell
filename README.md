@@ -17,11 +17,14 @@
   **TODO**.
 - [CS240H: Functional Systems in Haskell](http://www.scs.stanford.edu/16wi-cs240h),
   **TODO**.
+- [CIS 553: Advanced Programming](http://www.cis.upenn.edu/~cis552),
+  **TODO**.
 
 
 ### Random explorations
-- [Tying the knot](tying_the_knot.hs). A mechanism to play around
-  with cyclic data structures in Haskell.
+- [Tying the knot](tying_the_knot.hs).
+- [Curry-Howard correspondence](chi.hs).
+- [Dependent type](dp.hs), and [my presonal implementation](mydp.hs).
 
 ### License
 <a href="http://www.wtfpl.net">
