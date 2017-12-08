@@ -4,7 +4,8 @@
 > </p>
 
 
-### Sources
+Sources
+---------------
 - [Real World Haskell](http://book.realworldhaskell.org/read),
   referred to as `RWH`.
 - [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/chapters),
@@ -21,12 +22,15 @@
   **TODO**.
 
 
-### Random explorations
+Random explorations
+-----------------------
 - [Tying the knot](tying_the_knot.hs).
 - [Curry-Howard correspondence](chi.hs).
 - [Dependent type](dp.hs), and [my personal implementation](mydp.hs).
 
-### License
+
+License
+-----------------
 <a href="http://www.wtfpl.net">
   <img src="http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl.svg"
        width="64"

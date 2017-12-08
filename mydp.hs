@@ -1,8 +1,6 @@
-{-# LANGUAGE
-    GADTs,
-    MultiParamTypeClasses,
-    ScopedTypeVariables
-#-}
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 data Z
 data S n
