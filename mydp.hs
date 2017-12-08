@@ -1,7 +1,6 @@
 {-# LANGUAGE
     GADTs,
     MultiParamTypeClasses,
-    FlexibleInstances,
     ScopedTypeVariables
 #-}
 
@@ -17,6 +16,16 @@ type D6 = S D5
 type D7 = S D6
 type D8 = S D7
 type D9 = S D8
+d0 = undefined :: D0
+d1 = undefined :: D1
+d2 = undefined :: D2
+d3 = undefined :: D3
+d4 = undefined :: D4
+d5 = undefined :: D5
+d6 = undefined :: D6
+d7 = undefined :: D7
+d8 = undefined :: D8
+d9 = undefined :: D9
 
 data Vec n a where
     Nil  :: Vec Z a
@@ -28,12 +37,6 @@ instance Show a => Show (Vec n a) where
               show' Nil = ""
               show' (Cons a v) = show a ++ ","
 
-data Only a b = Only b
-instance Show b => Show (Only a b) where
-    show (Only b) = show b
-fromOnly :: Only a b -> b
-fromOnly (Only b) = b
-
 class Natural i
 instance Natural Z
 instance Natural n => Natural (S n)
@@ -42,36 +45,39 @@ instance Natural n => Natural (S n)
 vhead :: Vec (S n) a -> a
 vhead (Cons x xs) = x
 
--- m < n
-class LessThan n i where
-    index :: Vec n a -> Only i a
+-- i < n
+class WithIn n i where
+    index :: Vec n a -> i -> a
 
-instance Natural n => LessThan (S n) Z where
-    index (Cons x _) = Only x
+instance Natural n => WithIn (S n) Z where
+    index (Cons x _) _ = x
 
-instance (Natural n, LessThan n i) => LessThan (S n) (S i) where
-    index (Cons (x::a) xs) = Only extracted
-        where (Only extracted) = index xs :: Only i a
+instance (Natural n, WithIn n i) => WithIn (S n) (S i) where
+    index (Cons x xs) _ = index xs (undefined :: i)
 
 intv = Cons 42 $ Cons (-8) Nil
-take0 = fromOnly (index intv :: Only D0 Int)
-take1 = fromOnly (index intv :: Only D1 Int)
--- Should failed
---take2 = fromOnly (index intv :: Only D2 Int)
+take0 = index intv d0
+take1 = index intv d1
+-- Should fail
+--take2 = index intv d2
 
+-- It seems hard to add two peano numbers
+--type Add n1 Z = n1
 
-testLess :: (LessThan n m) => Only (n, m) String
-testLess = Only "success!"
+testWithIn :: (WithIn n i) => n -> i -> String
+testWithIn _ _ = "success!"
 
-tl0 = testLess :: Only (D1, D0) String
-tl1 = testLess :: Only (D5, D3) String
-tl2 = testLess :: Only (D9, D4) String
--- Should failed
---tl3 = testLess :: Only (D6, D6) String
---tl4 = testLess :: Only (D0, D0) String
---tl5 = testLess :: Only (D2, D8) String
+tl0 = testWithIn d1 d0
+tl1 = testWithIn d5 d3
+tl2 = testWithIn d9 d4
+-- Should fail
+--tl3 = testWithIn d6 d6
+--tl4 = testWithIn d0 d0
+--tl5 = testWithIn d2 d8
 
+data Only a b = Only b
+instance Show b => Show (Only a b) where
+    show (Only b) = show b
+fromOnly :: Only a b -> b
+fromOnly (Only b) = b
 
--- m x n matrix
-
-type Matrix m n a = Vec m (Vec n a)
