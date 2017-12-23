@@ -3,7 +3,8 @@
     GADTs
 #-}
 
--- From https://wiki.haskell.org/Tying_the_Knot
+-- https://wiki.haskell.org/Tying_the_Knot
+
 data DList a where
     DLNode :: Eq a => DList a -> a -> DList a -> DList a
 deriving instance Eq a => Eq (DList a)

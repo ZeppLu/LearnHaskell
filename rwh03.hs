@@ -59,6 +59,7 @@ nodesAreSame _ _ = False
 
 -- RWH ch03 ex07
 -- Similar to join in python
+-- Actually the same as `intercalate' in Data.List
 intersperse _ []     = []
 intersperse _ [x]    = x
 intersperse j (x:xs) = x ++ j ++ intersperse j xs
