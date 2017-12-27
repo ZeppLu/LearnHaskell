@@ -26,7 +26,7 @@ Random explorations
 -----------------------
 - [Tying the knot](tying_the_knot.hs).
 - [Curry-Howard correspondence](chi.hs).
-- [Dependent type](dp.hs), and [my personal implementation](archive/mydp.hs).
+- [Dependent type](dp.hs), and [my personal implementation](mydp.hs).
 - [F-Algebra](f-algebra.hs).
 - [Algebra of ADTs](type-algebra.hs).
 

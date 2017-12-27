@@ -1,7 +1,6 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE FlexibleInstances #-}
 
 data Z
 data S n
@@ -26,9 +25,39 @@ d7 = undefined :: D7
 d8 = undefined :: D8
 d9 = undefined :: D9
 
-class Natural i where
-instance Natural Z where
-instance Natural n => Natural (S n) where
+data Vec n a where
+    Nil  :: Vec Z a
+    Cons :: a -> Vec n a -> Vec (S n) a
+
+instance Show a => Show (Vec n a) where
+    show vec = '[' : show' vec ++ "]"
+        where show' :: Show a => Vec n a -> String
+              show' Nil = ""
+              show' (Cons a v) = show a ++ ","
+
+class Natural i
+instance Natural Z
+instance Natural n => Natural (S n)
+
+-- Safe head
+vhead :: Vec (S n) a -> a
+vhead (Cons x xs) = x
+
+-- i < n
+class WithIn n i where
+    index :: Vec n a -> i -> a
+
+instance Natural n => WithIn (S n) Z where
+    index (Cons x _) _ = x
+
+instance (Natural n, WithIn n i) => WithIn (S n) (S i) where
+    index (Cons x xs) _ = index xs (undefined :: i)
+
+intv = Cons 42 $ Cons (-8) Nil
+take0 = index intv d0
+take1 = index intv d1
+-- Should fail
+--take2 = index intv d2
 
 -- It seems hard to add two peano numbers
 --type Add n1 Z = n1
@@ -44,38 +73,9 @@ tl2 = testWithIn d9 d4
 --tl4 = testWithIn d0 d0
 --tl5 = testWithIn d2 d8
 
--- i < n
-class WithIn n i where
-    index :: Vec n a -> i -> a
-instance Natural n => WithIn (S n) Z where
-    index (Cons x _) _ = x
-instance (Natural n, WithIn n i) => WithIn (S n) (S i) where
-    index (Cons x xs) _ = index xs (undefined :: i)
-
-class SumOf s x y where
-    append :: Vec x a -> Vec y a -> Vec s a
--- failed
-instance (Natural n) => SumOf n Z n where
-    append vnil v = v
-
-data Vec n a where
-    Nil  :: Vec Z a
-    Cons :: a -> Vec n a -> Vec (S n) a
-
-instance Show a => Show (Vec n a) where
-    show vec = '[' : show' vec ++ "]"
-        where show' :: Show a => Vec n a -> String
-              show' Nil = ""
-              show' (Cons a v) = show a ++ ","
-
--- Safe head
-vhead :: Vec (S n) a -> a
-vhead (Cons x xs) = x
-
-intv = Cons 42 $ Cons (-8) Nil
-take0 = index intv d0
-take1 = index intv d1
--- Should fail
---take2 = index intv d2
-
+data Only a b = Only b
+instance Show b => Show (Only a b) where
+    show (Only b) = show b
+fromOnly :: Only a b -> b
+fromOnly (Only b) = b
 
