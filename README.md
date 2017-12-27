@@ -28,6 +28,7 @@ Random explorations
 - [Curry-Howard correspondence](chi.hs).
 - [Dependent type](dp.hs), and [my personal implementation](archive/mydp.hs).
 - [F-Algebra](f-algebra.hs).
+- [Algebra of ADTs](type-algebra.hs).
 
 
 License
