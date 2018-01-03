@@ -20,6 +20,8 @@ Sources
   **TODO**.
 - [CIS 552: Advanced Programming](http://www.cis.upenn.edu/~cis552),
   **TODO**.
+- [CIS 500: Software Foundations](http://www.seas.upenn.edu/~cis500),
+  **TODO**.
 
 
 Random explorations
